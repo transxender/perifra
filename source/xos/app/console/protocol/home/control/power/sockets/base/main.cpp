@@ -13,17 +13,26 @@
 /// or otherwise) arising in any way out of the use of this software, 
 /// even if advised of the possibility of such damage.
 ///
-///   File: main_opt.cpp
+///   File: main.cpp
 ///
 /// Author: $author$
-///   Date: 1/4/2023, 1/25/2023
+///   Date: 1/25/2023
 //////////////////////////////////////////////////////////////////////////
-#include "xos/app/console/protocol/home/control/power/base/main_opt.hpp"
+#include "xos/app/console/protocol/home/control/power/sockets/base/main.hpp"
 
-#ifndef XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_BASE_MAIN_OPT_INSTANCE
-/// #define XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_BASE_MAIN_OPT_INSTANCE 
-#else /// ndef XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_BASE_MAIN_OPT_INSTANCE 
-#endif /// ndef XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_BASE_MAIN_OPT_INSTANCE 
+#ifdef XOS_CONSOLE_MAIN_MAIN
+#include "xos/console/main_main.cpp"
+#ifndef XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_SOCKETS_BASE_MAIN_INSTANCE
+#define XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_SOCKETS_BASE_MAIN_INSTANCE
+#else /// ndef XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_SOCKETS_BASE_MAIN_INSTANCE 
+#endif /// ndef XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_SOCKETS_BASE_MAIN_INSTANCE 
+#else /// def XOS_CONSOLE_MAIN_MAIN 
+#endif /// def XOS_CONSOLE_MAIN_MAIN 
+
+#ifndef XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_SOCKETS_BASE_MAIN_INSTANCE
+/// #define XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_SOCKETS_BASE_MAIN_INSTANCE 
+#else /// ndef XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_SOCKETS_BASE_MAIN_INSTANCE 
+#endif /// ndef XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_SOCKETS_BASE_MAIN_INSTANCE 
 
 namespace xos {
 namespace app {
@@ -32,14 +41,16 @@ namespace protocol {
 namespace home {
 namespace control {
 namespace power {
+namespace sockets {
 namespace base {
 
 /// class 
-#ifdef XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_BASE_MAIN_OPT_INSTANCE
-static main_opt the_main_opt;
-#endif /// def XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_BASE_MAIN_OPT_INSTANCE 
+#ifdef XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_SOCKETS_BASE_MAIN_INSTANCE
+static main the_main;
+#endif /// def XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_SOCKETS_BASE_MAIN_INSTANCE 
 
 } /// namespace base 
+} /// namespace sockets 
 } /// namespace power 
 } /// namespace control 
 } /// namespace home 

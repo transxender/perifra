@@ -16,14 +16,14 @@
 ///   File: main_opt.cpp
 ///
 /// Author: $author$
-///   Date: 1/4/2023, 1/25/2023
+///   Date: 1/25/2023
 //////////////////////////////////////////////////////////////////////////
-#include "xos/app/console/protocol/home/control/power/base/main_opt.hpp"
+#include "xos/app/console/protocol/home/control/power/sockets/client/main_opt.hpp"
 
-#ifndef XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_BASE_MAIN_OPT_INSTANCE
-/// #define XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_BASE_MAIN_OPT_INSTANCE 
-#else /// ndef XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_BASE_MAIN_OPT_INSTANCE 
-#endif /// ndef XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_BASE_MAIN_OPT_INSTANCE 
+#ifndef XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_SOCKETS_CLIENT_MAIN_OPT_INSTANCE
+/// #define XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_SOCKETS_CLIENT_MAIN_OPT_INSTANCE 
+#else /// ndef XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_SOCKETS_CLIENT_MAIN_OPT_INSTANCE 
+#endif /// ndef XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_SOCKETS_CLIENT_MAIN_OPT_INSTANCE 
 
 namespace xos {
 namespace app {
@@ -32,14 +32,16 @@ namespace protocol {
 namespace home {
 namespace control {
 namespace power {
-namespace base {
+namespace sockets {
+namespace client {
 
 /// class 
-#ifdef XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_BASE_MAIN_OPT_INSTANCE
+#ifdef XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_SOCKETS_CLIENT_MAIN_OPT_INSTANCE
 static main_opt the_main_opt;
-#endif /// def XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_BASE_MAIN_OPT_INSTANCE 
+#endif /// def XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_SOCKETS_CLIENT_MAIN_OPT_INSTANCE 
 
-} /// namespace base 
+} /// namespace client 
+} /// namespace sockets 
 } /// namespace power 
 } /// namespace control 
 } /// namespace home 

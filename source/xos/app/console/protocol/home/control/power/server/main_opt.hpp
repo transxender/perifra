@@ -16,7 +16,7 @@
 ///   File: main_opt.hpp
 ///
 /// Author: $author$
-///   Date: 1/4/2023
+///   Date: 1/4/2023, 1/25/2023
 //////////////////////////////////////////////////////////////////////////
 #ifndef XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_SERVER_MAIN_OPT_HPP
 #define XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_SERVER_MAIN_OPT_HPP
@@ -28,10 +28,16 @@
 #define XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_SERVER_MAIN_OPTIONS_CHARS_EXTEND \
     XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_BASE_MAIN_OPT_POWER_ON_OPTVAL_S \
     XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_BASE_MAIN_OPT_POWER_OFF_OPTVAL_S \
+    XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_BASE_MAIN_OPT_SYSTEM_INFO_OPTVAL_S \
+    XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_BASE_MAIN_OPT_SYSTEM_RESTART_OPTVAL_S \
+    XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_BASE_MAIN_OPT_SYSTEM_STOP_OPTVAL_S \
 
 #define XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_SERVER_MAIN_OPTIONS_OPTIONS_EXTEND \
     XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_BASE_MAIN_OPT_POWER_ON_OPTION \
     XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_BASE_MAIN_OPT_POWER_OFF_OPTION \
+    XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_BASE_MAIN_OPT_SYSTEM_INFO_OPTION \
+    XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_BASE_MAIN_OPT_SYSTEM_RESTART_OPTION \
+    XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_BASE_MAIN_OPT_SYSTEM_STOP_OPTION \
 
 ///////////////////////////////////////////////////////////////////////
 #define XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_SERVER_MAIN_OPTIONS_CHARS \
@@ -486,6 +492,54 @@ protected:
         return err;
     }
     virtual int on_power_off_option_set
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if (!(err = on_response_option_set(optarg, optind, argc, argv, env))) {
+        } else {
+        }
+        return err;
+    }
+    
+    /// on...system_info_option...
+    virtual int on_get_system_info_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        this->set_response(this->system_info_response());
+        return err;
+    }
+    virtual int on_system_info_option_get
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if (!(err = on_response_option_set(optarg, optind, argc, argv, env))) {
+        } else {
+        }
+        return err;
+    }
+    
+    /// on...system_restart_option...
+    virtual int on_set_system_restart_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        this->set_response(this->system_restart_response());
+        return err;
+    }
+    virtual int on_system_restart_option_set
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if (!(err = on_response_option_set(optarg, optind, argc, argv, env))) {
+        } else {
+        }
+        return err;
+    }
+    
+    /// on...system_stop_option...
+    virtual int on_set_system_stop_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        this->set_response(this->system_stop_response());
+        return err;
+    }
+    virtual int on_system_stop_option_set
     (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
         int err = 0;
         if (!(err = on_response_option_set(optarg, optind, argc, argv, env))) {

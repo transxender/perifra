@@ -363,10 +363,12 @@ protected:
         if (!(err = this->all_get_pio_pin_value_run(argc, argv, env))) {
             uint8_t pio_is_on_value = this->pio_value();
 
+            LOGGER_IS_LOGGED_INFO("...pio_is_on_value = " << pio_is_on_value << "");
             this->set_pio_pin(pio_is_off_pin());
             if (!(err = this->all_get_pio_pin_value_run(argc, argv, env))) {
                 uint8_t pio_is_off_value = this->pio_value();
 
+                LOGGER_IS_LOGGED_INFO("...pio_is_off_value = " << pio_is_on_value << "");
                 if ((pio_is_on_value == this->pio_is_on_value())) {
                     this->set_pio_is_on();
                 } else {

@@ -16,14 +16,14 @@
 ///   File: main_opt.hpp
 ///
 /// Author: $author$
-///   Date: 1/4/2023
+///   Date: 1/4/2023, 1/25/2023
 //////////////////////////////////////////////////////////////////////////
 #ifndef XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_BASE_MAIN_OPT_HPP
 #define XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_BASE_MAIN_OPT_HPP
 
-#include "xos/app/console/protocol/base/main.hpp"
 #include "xos/app/console/protocol/client/main.hpp"
 #include "xos/app/console/protocol/server/main.hpp"
+#include "xos/app/console/protocol/base/main.hpp"
 
 #ifdef XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_CLIENT_MAIN_OPT_HPP
 #define XOS_APP_CONSOLE_PROTOCOL_HOME_CONTROL_POWER_BASE_MAIN_OPT_POWER_OPTARG_REQUEST "request"

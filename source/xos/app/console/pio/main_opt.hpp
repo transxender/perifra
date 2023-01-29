@@ -284,6 +284,7 @@ protected:
 
         LOGGER_IS_LOGGED_INFO("pio.get_value(pio_pin = " << pio_pin << ")...");
         pio_value = pio.get_value(pio_pin);
+        this->set_pio_value(pio_value);
         LOGGER_IS_LOGGED_INFO("..." << pio_value << " = pio.get_value(pio_pin = " << pio_pin << ")");
 
         if (!(err = all_output_pio_pin_value_run(argc, argv, env))) {
