@@ -13,48 +13,48 @@
 # or otherwise) arising in any way out of the use of this software,
 # even if advised of the possibility of such damage.
 #
-#   File: powerc.pri
+#   File: rppower.pri
 #
 # Author: $author$
-#   Date: 1/11/2023
+#   Date: 1/29/2023
 #
-# generic QtCreator project file for unebulidity framework perifra executable powerc
+# generic QtCreator project file for asteraede framework perifra executable rppower
 ########################################################################
 
 ########################################################################
-# powerc
+# rppower
 
-# powerc TARGET
+# rppower TARGET
 #
-powerc_TARGET = powerc
+rppower_TARGET = rppower
 
-# powerc INCLUDEPATH
+# rppower INCLUDEPATH
 #
-powerc_INCLUDEPATH += \
+rppower_INCLUDEPATH += \
 $${perifra_INCLUDEPATH} \
 
-# powerc DEFINES
+# rppower DEFINES
 #
-powerc_DEFINES += \
+rppower_DEFINES += \
 $${perifra_DEFINES} \
 DEFAULT_LOGGING_LEVELS_ERROR \
 XOS_CONSOLE_MAIN_MAIN \
 
 ########################################################################
-# powerc OBJECTIVE_HEADERS
+# rppower OBJECTIVE_HEADERS
 #
-#powerc_OBJECTIVE_HEADERS += \
-#$${PERIFRA_SRC}/xos/app/console/protocol/home/control/power/client/main.hh \
+#rppower_OBJECTIVE_HEADERS += \
+#$${PERIFRA_SRC}/xos/app/console/rppower/main.hh \
 
-# powerc OBJECTIVE_SOURCES
+# rppower OBJECTIVE_SOURCES
 #
-#powerc_OBJECTIVE_SOURCES += \
-#$${PERIFRA_SRC}/xos/app/console/protocol/home/control/power/client/main.mm \
+#rppower_OBJECTIVE_SOURCES += \
+#$${PERIFRA_SRC}/xos/app/console/rppower/main.mm \
 
 ########################################################################
-# powerc HEADERS
+# rppower HEADERS
 #
-powerc_HEADERS += \
+rppower_HEADERS += \
 $${PERIFRA_SRC}/xos/app/console/protocol/base/main_opt.hpp \
 $${PERIFRA_SRC}/xos/app/console/protocol/base/main.hpp \
 $${PERIFRA_SRC}/xos/app/console/protocol/client/main_opt.hpp \
@@ -88,21 +88,21 @@ $${PERIFRA_SRC}/xos/app/console/protocol/home/control/power/sockets/base/main.hp
 $${PERIFRA_SRC}/xos/app/console/protocol/home/control/power/sockets/client/main_opt.hpp \
 $${PERIFRA_SRC}/xos/app/console/protocol/home/control/power/sockets/client/main.hpp \
 
-# powerc SOURCES
+# rppower SOURCES
 #
-powerc_SOURCES += \
+rppower_SOURCES += \
 $${PERIFRA_SRC}/xos/app/console/protocol/home/control/power/sockets/client/main_opt.cpp \
 $${PERIFRA_SRC}/xos/app/console/protocol/home/control/power/sockets/client/main.cpp \
 
 ########################################################################
-# powerc FRAMEWORKS
+# rppower FRAMEWORKS
 #
-powerc_FRAMEWORKS += \
+rppower_FRAMEWORKS += \
 $${perifra_FRAMEWORKS} \
 
-# powerc LIBS
+# rppower LIBS
 #
-powerc_LIBS += \
+rppower_LIBS += \
 $${perifra_LIBS} \
 
 ########################################################################
