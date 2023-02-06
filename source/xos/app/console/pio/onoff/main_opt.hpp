@@ -16,7 +16,7 @@
 ///   File: main_opt.hpp
 ///
 /// Author: $author$
-///   Date: 1/2/2023
+///   Date: 1/2/2023, 2/5/2023
 //////////////////////////////////////////////////////////////////////////
 #ifndef XOS_APP_CONSOLE_PIO_ONOFF_MAIN_OPT_HPP
 #define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_OPT_HPP
@@ -24,6 +24,8 @@
 #include "xos/os/sleep.hpp"
 #include "xos/app/console/pio/main.hpp"
 
+#define XOS_APP_CONSOLE_PIO_ONOFF_MSECONDS_MIN 300
+#define XOS_APP_CONSOLE_PIO_ONOFF_MSECONDS_MAX 5000
 #define XOS_APP_CONSOLE_PIO_ONOFF_MSECONDS 500
 #define XOS_APP_CONSOLE_PIO_ONOFF_REPEAT 0
 
@@ -95,7 +97,7 @@
 #define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_REPEAT_OPT "repeat"
 #define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_REPEAT_OPTARG_REQUIRED MAIN_OPT_ARGUMENT_OPTIONAL
 #define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_REPEAT_OPTARG_RESULT 0
-#define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_REPEAT_OPTARG ""
+#define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_REPEAT_OPTARG "[{ -1 | 0..n }]"
 #define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_REPEAT_OPTUSE "repeat power toggle"
 #define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_REPEAT_OPTVAL_S "R::"
 #define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_REPEAT_OPTVAL_C 'R'
@@ -108,15 +110,41 @@
 #define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_OPT_MSECONDS_OPT "mseconds"
 #define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_OPT_MSECONDS_OPTARG_REQUIRED MAIN_OPT_ARGUMENT_OPTIONAL
 #define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_OPT_MSECONDS_OPTARG_RESULT 0
-#define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_OPT_MSECONDS_OPTARG ""
+#define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_OPT_MSECONDS_OPTARG "[{ 0 | 100..10000 }]"
 #define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_OPT_MSECONDS_OPTUSE "mseconds pin on"
-#define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_OPT_MSECONDS_OPTVAL_S "M:"
+#define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_OPT_MSECONDS_OPTVAL_S "M::"
 #define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_OPT_MSECONDS_OPTVAL_C 'M'
 #define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_OPT_MSECONDS_OPTION \
    {XOS_APP_CONSOLE_PIO_ONOFF_MAIN_OPT_MSECONDS_OPT, \
     XOS_APP_CONSOLE_PIO_ONOFF_MAIN_OPT_MSECONDS_OPTARG_REQUIRED, \
     XOS_APP_CONSOLE_PIO_ONOFF_MAIN_OPT_MSECONDS_OPTARG_RESULT, \
     XOS_APP_CONSOLE_PIO_ONOFF_MAIN_OPT_MSECONDS_OPTVAL_C}, \
+
+#define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_LOW_OPT "active-low"
+#define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_LOW_OPTARG_REQUIRED MAIN_OPT_ARGUMENT_NONE
+#define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_LOW_OPTARG_RESULT 0
+#define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_LOW_OPTARG ""
+#define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_LOW_OPTUSE "active low pin io"
+#define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_LOW_OPTVAL_S "L"
+#define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_LOW_OPTVAL_C 'L'
+#define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_LOW_OPTION \
+   {XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_LOW_OPT, \
+    XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_LOW_OPTARG_REQUIRED, \
+    XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_LOW_OPTARG_RESULT, \
+    XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_LOW_OPTVAL_C}, \
+
+#define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_HIGH_OPT "active-high"
+#define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_HIGH_OPTARG_REQUIRED MAIN_OPT_ARGUMENT_NONE
+#define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_HIGH_OPTARG_RESULT 0
+#define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_HIGH_OPTARG ""
+#define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_HIGH_OPTUSE "active high pin io"
+#define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_HIGH_OPTVAL_S "H"
+#define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_HIGH_OPTVAL_C 'H'
+#define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_HIGH_OPTION \
+   {XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_HIGH_OPT, \
+    XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_HIGH_OPTARG_REQUIRED, \
+    XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_HIGH_OPTARG_RESULT, \
+    XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_HIGH_OPTVAL_C}, \
 
 ///////////////////////////////////////////////////////////////////////
 #define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_OPTIONS_CHARS_EXTEND \
@@ -126,6 +154,8 @@
     XOS_APP_CONSOLE_PIO_ONOFF_MAIN_TOGGLE_OPTVAL_S \
     XOS_APP_CONSOLE_PIO_ONOFF_MAIN_REPEAT_OPTVAL_S \
     XOS_APP_CONSOLE_PIO_ONOFF_MAIN_OPT_MSECONDS_OPTVAL_S \
+    XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_LOW_OPTVAL_S \
+    XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_HIGH_OPTVAL_S \
 
 #define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_OPTIONS_OPTIONS_EXTEND \
    XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ON_OPTION \
@@ -134,6 +164,8 @@
     XOS_APP_CONSOLE_PIO_ONOFF_MAIN_TOGGLE_OPTION \
     XOS_APP_CONSOLE_PIO_ONOFF_MAIN_REPEAT_OPTION \
     XOS_APP_CONSOLE_PIO_ONOFF_MAIN_OPT_MSECONDS_OPTION \
+    XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_LOW_OPTION \
+    XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_HIGH_OPTION \
 
 ///////////////////////////////////////////////////////////////////////
 #define XOS_APP_CONSOLE_PIO_ONOFF_MAIN_OPTIONS_CHARS \
@@ -176,13 +208,17 @@ public:
     main_optt()
     : run_(0), 
 
-      repeat_(XOS_APP_CONSOLE_PIO_ONOFF_REPEAT), mseconds_pin_on_(XOS_APP_CONSOLE_PIO_ONOFF_MSECONDS),
+      repeat_(XOS_APP_CONSOLE_PIO_ONOFF_REPEAT), 
+      min_mseconds_pin_on_(XOS_APP_CONSOLE_PIO_ONOFF_MSECONDS_MIN), max_mseconds_pin_on_(XOS_APP_CONSOLE_PIO_ONOFF_MSECONDS_MAX),  
+      default_mseconds_pin_on_(XOS_APP_CONSOLE_PIO_ONOFF_MSECONDS), mseconds_pin_on_(default_mseconds_pin_on_),
 
       pio_on_pin_(XOS_APP_CONSOLE_PIO_ONOFF_ON_PIN), pio_off_pin_(XOS_APP_CONSOLE_PIO_ONOFF_OFF_PIN), 
       pio_on_value_(XOS_APP_CONSOLE_PIO_ONOFF_ON_VALUE), pio_off_value_(XOS_APP_CONSOLE_PIO_ONOFF_OFF_VALUE),
 
       pio_is_on_pin_(XOS_APP_CONSOLE_PIO_ONOFF_IS_ON_PIN), pio_is_off_pin_(XOS_APP_CONSOLE_PIO_ONOFF_IS_OFF_PIN), 
-      pio_is_on_value_(XOS_APP_CONSOLE_PIO_ONOFF_IS_ON_VALUE), pio_is_off_value_(XOS_APP_CONSOLE_PIO_ONOFF_IS_OFF_VALUE) {
+      pio_is_on_value_(XOS_APP_CONSOLE_PIO_ONOFF_IS_ON_VALUE), pio_is_off_value_(XOS_APP_CONSOLE_PIO_ONOFF_IS_OFF_VALUE),
+    
+      pio_is_on_(false), pio_is_off_(false), pio_is_active_low_(false) {
     }
     virtual ~main_optt() {
     }
@@ -223,14 +259,19 @@ protected:
                 this->set_pio_pin(pio_on_pin());
                 this->set_pio_value(pio_on_value());
                 if (!(err = this->all_set_pio_pin_value_run(argc, argv, env))) {
-                    useconds_t useconds = mseconds_useconds(mseconds_pin_on());
+                    mseconds_t mseconds = mseconds_pin_on();
 
-                    LOGGER_IS_LOGGED_INFO("usleep(" << useconds << ")...");
-                    usleep(useconds);
-                    LOGGER_IS_LOGGED_INFO("...usleep(" << useconds << ")");
-                    this->set_pio_value(pio_off_value());
-                    if (!(err = this->all_set_pio_pin_value_run(argc, argv, env))) {
-                        if (!(err = all_pio_power_state_run(argc, argv, env))) {
+                    if ((0 < mseconds)) {
+                        useconds_t useconds = mseconds_useconds(mseconds);
+    
+                        LOGGER_IS_LOGGED_INFO("usleep(" << useconds << ")...");
+                        usleep(useconds);
+                        LOGGER_IS_LOGGED_INFO("...usleep(" << useconds << ")");
+                        this->set_pio_value(pio_off_value());
+                        if (!(err = this->all_set_pio_pin_value_run(argc, argv, env))) {
+                            if (!(err = all_pio_power_state_run(argc, argv, env))) {
+                            } else {
+                            }
                         } else {
                         }
                     } else {
@@ -295,14 +336,19 @@ protected:
                 this->set_pio_pin(pio_off_pin());
                 this->set_pio_value(pio_on_value());
                 if (!(err = this->all_set_pio_pin_value_run(argc, argv, env))) {
-                    useconds_t useconds = mseconds_useconds(mseconds_pin_on());
+                    mseconds_t mseconds = mseconds_pin_on();
 
-                    LOGGER_IS_LOGGED_INFO("usleep(" << useconds << ")...");
-                    usleep(useconds);
-                    LOGGER_IS_LOGGED_INFO("...usleep(" << useconds << ")");
-                    this->set_pio_value(pio_off_value());
-                    if (!(err = this->all_set_pio_pin_value_run(argc, argv, env))) {
-                        if (!(err = all_pio_power_state_run(argc, argv, env))) {
+                    if ((0 < mseconds)) {
+                        useconds_t useconds = mseconds_useconds(mseconds);
+    
+                        LOGGER_IS_LOGGED_INFO("usleep(" << useconds << ")...");
+                        usleep(useconds);
+                        LOGGER_IS_LOGGED_INFO("...usleep(" << useconds << ")");
+                        this->set_pio_value(pio_off_value());
+                        if (!(err = this->all_set_pio_pin_value_run(argc, argv, env))) {
+                            if (!(err = all_pio_power_state_run(argc, argv, env))) {
+                            } else {
+                            }
                         } else {
                         }
                     } else {
@@ -430,12 +476,20 @@ protected:
         signed repeat = this->repeat();
         do {
             if (!(err = all_pio_power_on_run(argc, argv, env))) {
-                useconds_t useconds = mseconds_useconds(mseconds_pin_on());
-    
-                LOGGER_IS_LOGGED_INFO("usleep(" << useconds << ")...");
-                usleep(useconds);
-                LOGGER_IS_LOGGED_INFO("...usleep(" << useconds << ")");
-                if (!(err = all_pio_power_off_run(argc, argv, env))) {
+                mseconds_t mseconds = mseconds_pin_on();
+
+                if ((0 >= mseconds)) {
+                    mseconds = default_mseconds_pin_on();
+                }
+                if ((0 < mseconds)) {
+                    useconds_t useconds = mseconds_useconds(mseconds);
+        
+                    LOGGER_IS_LOGGED_INFO("usleep(" << useconds << ")...");
+                    usleep(useconds);
+                    LOGGER_IS_LOGGED_INFO("...usleep(" << useconds << ")");
+                    if (!(err = all_pio_power_off_run(argc, argv, env))) {
+                    } else {
+                    }
                 } else {
                 }
             } else {
@@ -477,6 +531,98 @@ protected:
         return err;
     }
     virtual int pio_power_toggle_run_unset(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        return err;
+    }
+
+    /// ...output_repeat_toggle_run
+    virtual int output_repeat_toggle_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        const signed& repeat = this->repeat();
+        signed_to_string repeat_string(repeat);
+        this->outln(repeat_string);
+        return err;
+    }
+    virtual int before_output_repeat_toggle_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        return err;
+    }
+    virtual int after_output_repeat_toggle_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        return err;
+    }
+    virtual int all_output_repeat_toggle_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        if (!(err = before_output_repeat_toggle_run(argc, argv, env))) {
+            int err2 = 0;
+            err = output_repeat_toggle_run(argc, argv, env);
+            if ((err2 = after_output_repeat_toggle_run(argc, argv, env))) {
+                if (!(err)) err = err2;
+            }
+        }
+        return err;
+    }
+    virtual int set_output_repeat_toggle_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        run_ = &derives::all_output_repeat_toggle_run;
+        return err;
+    }
+    virtual int output_repeat_toggle_run_set(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        return err;
+    }
+    virtual int unset_output_repeat_toggle_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        run_ = 0;
+        return err;
+    }
+    virtual int output_repeat_toggle_run_unset(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        return err;
+    }
+
+    /// ...output_mseconds_pin_on_run
+    virtual int output_mseconds_pin_on_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        const mseconds_t& mseconds_pin_on = this->mseconds_pin_on();
+        unsigned_to_string mseconds_pin_on_string((unsigned)mseconds_pin_on);
+        this->outln(mseconds_pin_on_string);
+        return err;
+    }
+    virtual int before_output_mseconds_pin_on_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        return err;
+    }
+    virtual int after_output_mseconds_pin_on_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        return err;
+    }
+    virtual int all_output_mseconds_pin_on_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        if (!(err = before_output_mseconds_pin_on_run(argc, argv, env))) {
+            int err2 = 0;
+            err = output_mseconds_pin_on_run(argc, argv, env);
+            if ((err2 = after_output_mseconds_pin_on_run(argc, argv, env))) {
+                if (!(err)) err = err2;
+            }
+        }
+        return err;
+    }
+    virtual int set_output_mseconds_pin_on_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        run_ = &derives::all_output_mseconds_pin_on_run;
+        return err;
+    }
+    virtual int output_mseconds_pin_on_run_set(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        return err;
+    }
+    virtual int unset_output_mseconds_pin_on_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        run_ = 0;
+        return err;
+    }
+    virtual int output_mseconds_pin_on_run_unset(int argc, char_t** argv, char_t** env) {
         int err = 0;
         return err;
     }
@@ -666,6 +812,12 @@ protected:
     virtual int on_repeat_option_get
     (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
         int err = 0;
+        if (!(err = set_output_repeat_toggle_run(argc, argv, env))) {
+            if (!(err = output_repeat_toggle_run_set(argc, argv, env))) {
+            } else {
+            }
+        } else {
+        }
         return err;
     }
     virtual int on_set_repeat_option
@@ -683,6 +835,12 @@ protected:
     (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
         int err = 0;
         if ((optarg) && (optarg[0])) {
+            if (!(err = set_output_repeat_toggle_run(argc, argv, env))) {
+                if (!(err = output_repeat_toggle_run_set(argc, argv, env))) {
+                } else {
+                }
+            } else {
+            }
         } else {
         }
         return err;
@@ -718,16 +876,14 @@ protected:
     virtual int on_get_mseconds_option
     (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
         int err = 0;
-        if ((optarg) && (optarg[0])) {
-        } else {
-        }
         return err;
     }
     virtual int on_mseconds_option_get
     (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
         int err = 0;
-        if ((optarg) && (optarg[0])) {
-        } else {
+        if (!(err = set_output_mseconds_pin_on_run(argc, argv, env))) {
+            if (!(err = output_mseconds_pin_on_run_set(argc, argv, env))) {
+            }
         }
         return err;
     }
@@ -738,10 +894,19 @@ protected:
             string_t arg(optarg);
             unsigned mseconds(arg.to_unsigned());
             if ((0 < (mseconds))) {
-                if ((100 > (mseconds))) {
-                    mseconds = 100;
+                unsigned mseconds_min = ((unsigned)min_mseconds_pin_on()),
+                         mseconds_max = ((unsigned)max_mseconds_pin_on());
+                if ((mseconds_min > (mseconds))) {
+                    mseconds = mseconds_min;
+                } else {
+                    if ((mseconds_max < (mseconds))) {
+                        mseconds = mseconds_max;
+                    } else {
+                    }
                 }
                 set_mseconds_pin_on(mseconds);
+            } else {
+                set_mseconds_pin_on(0);
             }
         } else {
         }
@@ -751,6 +916,10 @@ protected:
     (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
         int err = 0;
         if ((optarg) && (optarg[0])) {
+            if (!(err = set_output_mseconds_pin_on_run(argc, argv, env))) {
+                if (!(err = output_mseconds_pin_on_run_set(argc, argv, env))) {
+                }
+            }
         } else {
         }
         return err;
@@ -782,6 +951,66 @@ protected:
         return chars;
     }
 
+    /// on...active_low_option...
+    virtual int on_set_active_low_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        set_pio_is_active_low(true);
+        return err;
+    }
+    virtual int on_active_low_option_set
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        return err;
+    }
+    virtual int on_active_low_option
+    (int optval, const char_t* optarg, const char_t* optname,
+     int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if (!(err = on_set_active_low_option(optarg, optind, argc, argv, env))) {
+            if (!(err = on_active_low_option_set(optarg, optind, argc, argv, env))) {
+            } else {
+            }
+        } else {
+        }
+        return err;
+    }
+    virtual const char_t* active_low_option_usage(const char_t*& optarg, const struct option* longopt) {
+        const char_t* chars = XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_LOW_OPTUSE;
+        optarg = XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_LOW_OPTARG;
+        return chars;
+    }
+
+    /// on...active_high_option...
+    virtual int on_set_active_high_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        set_pio_is_active_low(false);
+        return err;
+    }
+    virtual int on_active_high_option_set
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        return err;
+    }
+    virtual int on_active_high_option
+    (int optval, const char_t* optarg, const char_t* optname,
+     int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if (!(err = on_set_active_high_option(optarg, optind, argc, argv, env))) {
+            if (!(err = on_active_high_option_set(optarg, optind, argc, argv, env))) {
+            } else {
+            }
+        } else {
+        }
+        return err;
+    }
+    virtual const char_t* active_high_option_usage(const char_t*& optarg, const struct option* longopt) {
+        const char_t* chars = XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_HIGH_OPTUSE;
+        optarg = XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_HIGH_OPTARG;
+        return chars;
+    }
+
     /// ...option...
     virtual int on_option
     (int optval, const char_t* optarg, const char_t* optname,
@@ -807,6 +1036,13 @@ protected:
             break;
         case XOS_APP_CONSOLE_PIO_ONOFF_MAIN_OPT_MSECONDS_OPTVAL_C:
             err = this->on_mseconds_option(optval, optarg, optname, optind, argc, argv, env);
+            break;
+
+        case XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_LOW_OPTVAL_C:
+            err = this->on_active_low_option(optval, optarg, optname, optind, argc, argv, env);
+            break;
+        case XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_HIGH_OPTVAL_C:
+            err = this->on_active_high_option(optval, optarg, optname, optind, argc, argv, env);
             break;
 
         default:
@@ -836,6 +1072,13 @@ protected:
             break;
         case XOS_APP_CONSOLE_PIO_ONOFF_MAIN_OPT_MSECONDS_OPTVAL_C:
             chars = this->mseconds_option_usage(optarg, longopt);
+            break;
+
+        case XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_LOW_OPTVAL_C:
+            chars = this->active_low_option_usage(optarg, longopt);
+            break;
+        case XOS_APP_CONSOLE_PIO_ONOFF_MAIN_ACTIVE_HIGH_OPTVAL_C:
+            chars = this->active_high_option_usage(optarg, longopt);
             break;
 
         default:
@@ -873,7 +1116,31 @@ protected:
         return (signed&)repeat_;
     }
 
-    /// ...pin
+    /// ...mseconds_pin...
+    virtual mseconds_t& set_min_mseconds_pin_on(mseconds_t to) {
+        mseconds_t& min_mseconds_pin_on = this->min_mseconds_pin_on();
+        min_mseconds_pin_on = to;
+        return min_mseconds_pin_on;
+    }
+    virtual mseconds_t& min_mseconds_pin_on() const {
+        return (mseconds_t&)min_mseconds_pin_on_;
+    }
+    virtual mseconds_t& set_max_mseconds_pin_on(mseconds_t to) {
+        mseconds_t& max_mseconds_pin_on = this->max_mseconds_pin_on();
+        max_mseconds_pin_on = to;
+        return max_mseconds_pin_on;
+    }
+    virtual mseconds_t& max_mseconds_pin_on() const {
+        return (mseconds_t&)max_mseconds_pin_on_;
+    }
+    virtual mseconds_t& set_default_mseconds_pin_on(mseconds_t to) {
+        mseconds_t& default_mseconds_pin_on = this->default_mseconds_pin_on();
+        default_mseconds_pin_on = to;
+        return default_mseconds_pin_on;
+    }
+    virtual mseconds_t& default_mseconds_pin_on() const {
+        return (mseconds_t&)default_mseconds_pin_on_;
+    }
     virtual mseconds_t& set_mseconds_pin_on(mseconds_t to) {
         mseconds_t& mseconds_pin_on = this->mseconds_pin_on();
         mseconds_pin_on = to;
@@ -882,6 +1149,8 @@ protected:
     virtual mseconds_t& mseconds_pin_on() const {
         return (mseconds_t&)mseconds_pin_on_;
     }
+
+    /// ...pin...
     virtual uint8_t& pio_on_pin() const {
         return (uint8_t&)pio_on_pin_;
     }
@@ -897,15 +1166,27 @@ protected:
     
     /// ...value
     virtual uint8_t& pio_on_value() const {
+        if ((pio_is_active_low())) {
+            return (uint8_t&)pio_off_value_;
+        }
         return (uint8_t&)pio_on_value_;
     }
     virtual uint8_t& pio_off_value() const {
+        if ((pio_is_active_low())) {
+            return (uint8_t&)pio_on_value_;
+        }
         return (uint8_t&)pio_off_value_;
     }
     virtual uint8_t& pio_is_on_value() const {
+        if ((pio_is_active_low())) {
+            return (uint8_t&)pio_is_off_value_;
+        }
         return (uint8_t&)pio_is_on_value_;
     }
     virtual uint8_t& pio_is_off_value() const {
+        if ((pio_is_active_low())) {
+            return (uint8_t&)pio_is_on_value_;
+        }
         return (uint8_t&)pio_is_off_value_;
     }
 
@@ -929,12 +1210,22 @@ protected:
         return (bool&)pio_is_off_;
     }
 
+    /// ...is_active_low
+    virtual bool& set_pio_is_active_low(const bool& to = true) {
+        bool& pio_is_active_low = this->pio_is_active_low();
+        pio_is_active_low = to;
+        return pio_is_active_low;
+    }
+    virtual bool& pio_is_active_low() const {
+        return (bool&)pio_is_active_low_;
+    }
+
 protected:
     signed repeat_;
-    mseconds_t mseconds_pin_on_;
+    mseconds_t min_mseconds_pin_on_, max_mseconds_pin_on_, default_mseconds_pin_on_, mseconds_pin_on_;
     uint8_t pio_on_pin_, pio_off_pin_, pio_on_value_, pio_off_value_;
     uint8_t pio_is_on_pin_, pio_is_off_pin_, pio_is_on_value_, pio_is_off_value_;
-    bool pio_is_on_, pio_is_off_;
+    bool pio_is_on_, pio_is_off_, pio_is_active_low_;
 }; /// class main_optt 
 typedef main_optt<> main_opt;
 
