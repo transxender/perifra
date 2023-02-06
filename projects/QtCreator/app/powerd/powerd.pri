@@ -55,27 +55,6 @@ XOS_CONSOLE_MAIN_MAIN \
 # powerd HEADERS
 #
 powerd_HEADERS += \
-$${PERIFRA_SRC}/xos/platform/os/raspberrypi/raspberrypios/pigpio.h \
-$${PERIFRA_SRC}/xos/platform/os/raspberrypi/raspberrypios/pigpio.hpp \
-\
-$${PERIFRA_SRC}/xos/base/initialized.hpp \
-$${PERIFRA_SRC}/xos/base/finalized.hpp \
-\
-$${PERIFRA_SRC}/xos/pio/implement.hpp \
-$${PERIFRA_SRC}/xos/pio/extend.hpp \
-$${PERIFRA_SRC}/xos/pio/raspberrypi/raspberrypios/pigpio/pio.hpp \
-$${PERIFRA_SRC}/xos/pio/os/os.hpp \
-$${PERIFRA_SRC}/xos/pio/pios.hpp \
-\
-$${PERIFRA_SRC}/xos/app/console/base/main_opt.hpp \
-$${PERIFRA_SRC}/xos/app/console/base/main.hpp \
-\
-$${PERIFRA_SRC}/xos/app/console/pio/main_opt.hpp \
-$${PERIFRA_SRC}/xos/app/console/pio/main.hpp \
-\
-$${PERIFRA_SRC}/xos/app/console/pio/onoff/main_opt.hpp \
-$${PERIFRA_SRC}/xos/app/console/pio/onoff/main.hpp \
-\
 $${PERIFRA_SRC}/xos/app/console/protocol/base/main_opt.hpp \
 $${PERIFRA_SRC}/xos/app/console/protocol/base/main.hpp \
 $${PERIFRA_SRC}/xos/app/console/protocol/client/main_opt.hpp \
@@ -89,43 +68,12 @@ $${PERIFRA_SRC}/xos/app/console/protocol/home/control/power/client/main_opt.hpp 
 $${PERIFRA_SRC}/xos/app/console/protocol/home/control/power/client/main.hpp \
 $${PERIFRA_SRC}/xos/app/console/protocol/home/control/power/server/main_opt.hpp \
 $${PERIFRA_SRC}/xos/app/console/protocol/home/control/power/server/main.hpp \
-\
-$${PERIFRA_SRC}/xos/app/console/protocol/home/control/power/server/pio/main_opt.hpp \
-$${PERIFRA_SRC}/xos/app/console/protocol/home/control/power/server/pio/main.hpp \
-\
-$${PERIFRA_SRC}/xos/app/console/network/protocol/base/main_opt.hpp \
-$${PERIFRA_SRC}/xos/app/console/network/protocol/base/main.hpp \
-$${PERIFRA_SRC}/xos/app/console/network/protocol/client/main_opt.hpp \
-$${PERIFRA_SRC}/xos/app/console/network/protocol/client/main.hpp \
-$${PERIFRA_SRC}/xos/app/console/network/protocol/server/main_opt.hpp \
-$${PERIFRA_SRC}/xos/app/console/network/protocol/server/main.hpp \
-\
-$${PERIFRA_SRC}/xos/app/console/network/protocol/sockets/base/main_opt.hpp \
-$${PERIFRA_SRC}/xos/app/console/network/protocol/sockets/base/main.hpp \
-$${PERIFRA_SRC}/xos/app/console/network/protocol/sockets/client/main_opt.hpp \
-$${PERIFRA_SRC}/xos/app/console/network/protocol/sockets/client/main.hpp \
-$${PERIFRA_SRC}/xos/app/console/network/protocol/sockets/server/main_opt.hpp \
-$${PERIFRA_SRC}/xos/app/console/network/protocol/sockets/server/main.hpp \
-\
-$${PERIFRA_SRC}/xos/app/console/protocol/home/control/power/sockets/server/pio/main_opt.hpp \
-$${PERIFRA_SRC}/xos/app/console/protocol/home/control/power/sockets/server/pio/main.hpp \
 
 # powerd SOURCES
 #
 powerd_SOURCES += \
-$${PERIFRA_SRC}/xos/platform/os/raspberrypi/raspberrypios/pigpio.cpp \
-\
-$${PERIFRA_SRC}/xos/base/initialized.cpp \
-$${PERIFRA_SRC}/xos/base/finalized.cpp \
-\
-$${PERIFRA_SRC}/xos/pio/implement.cpp \
-$${PERIFRA_SRC}/xos/pio/extend.cpp \
-$${PERIFRA_SRC}/xos/pio/raspberrypi/raspberrypios/pigpio/pio.cpp \
-$${PERIFRA_SRC}/xos/pio/os/os.cpp \
-$${PERIFRA_SRC}/xos/pio/pios.cpp \
-\
-$${PERIFRA_SRC}/xos/app/console/protocol/home/control/power/sockets/server/pio/main_opt.cpp \
-$${PERIFRA_SRC}/xos/app/console/protocol/home/control/power/sockets/server/pio/main.cpp \
+$${PERIFRA_SRC}/xos/app/console/protocol/home/control/power/server/main_opt.cpp \
+$${PERIFRA_SRC}/xos/app/console/protocol/home/control/power/server/main.cpp \
 
 ########################################################################
 # powerd FRAMEWORKS
