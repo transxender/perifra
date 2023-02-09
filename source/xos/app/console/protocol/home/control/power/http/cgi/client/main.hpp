@@ -114,6 +114,22 @@ protected:
         }
         return err;
     }
+    virtual int power_state_console_gateway_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        const string_t& power_state_request = this->power_state_request();
+        string_t &request = this->request(), &response = this->response();
+
+        request.assign(power_state_request);
+        response.assign(request);
+        set_response_was_output(false);
+        if (!(err = this->all_sockets_connect_run(argc, argv, env))) {
+        }
+        if (!(response_was_output())) {
+            if (!(err = this->all_output_response_run(response, argc, argv, env))) {
+            }
+        }
+        return err;
+    }
     virtual int action_console_gateway_run(const string_t& action, int argc, char_t** argv, char_t** env) {
         int err = 0;
         int unequal = 0;
@@ -127,7 +143,13 @@ protected:
             if (!(unequal = power_off_option.compare(action))) {
                 err = power_off_console_gateway_run(argc, argv, env);
             } else {
-                err = this->all_console_gateway_out_run(argc, argv, env);
+                const string_t& power_state_option = this->power_state_option();
+        
+                if (!(unequal = power_state_option.compare(action))) {
+                    err = power_state_console_gateway_run(argc, argv, env);
+                } else {
+                    err = this->all_console_gateway_out_run(argc, argv, env);
+                }
             }
         }
         return err;
@@ -135,8 +157,20 @@ protected:
     virtual int console_gateway_run(int argc, char_t** argv, char_t** env) {
         int err = 0;
         const string_t& action_form_field_name = this->action_form_field_name();
+        const string_t& host_form_field_name = this->host_form_field_name();
+        const string_t& port_form_field_name = this->port_form_field_name();
         const char_t* chars = 0;
         
+        if ((chars = this->first_query_or_form_field_named_chars(host_form_field_name))) {
+            const string_t host(chars);
+            this->set_connect_host(host);
+        } else {
+        }
+        if ((chars = this->first_query_or_form_field_named_chars(port_form_field_name))) {
+            const string_t port(chars);
+            this->set_connect_port(port.to_unsigned());
+        } else {
+        }
         if ((chars = this->first_query_or_form_field_named_chars(action_form_field_name))) {
             const string_t action(chars);
             err = action_console_gateway_run(action, argc, argv, env);

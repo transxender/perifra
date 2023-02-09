@@ -54,7 +54,10 @@ public:
 
     /// constructor / destructor
     maint()
-    : run_(0), action_form_field_name_("action") {
+    : run_(0), 
+      action_form_field_name_("action"), 
+      host_form_field_name_("host"), 
+      port_form_field_name_("port") {
     }
     virtual ~maint() {
     }
@@ -80,12 +83,19 @@ protected:
         return err;
     }
 
+    /// ...form_field_name...
     virtual string_t& action_form_field_name() const {
         return (string_t&) action_form_field_name_;
     }
+    virtual string_t& host_form_field_name() const {
+        return (string_t&) host_form_field_name_;
+    }
+    virtual string_t& port_form_field_name() const {
+        return (string_t&) port_form_field_name_;
+    }
 
 protected:
-    string_t action_form_field_name_;
+    string_t action_form_field_name_, host_form_field_name_, port_form_field_name_;
 }; /// class maint 
 typedef maint<> main;
 
