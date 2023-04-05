@@ -67,6 +67,13 @@ $${PERIFRA_SRC}/xos/app/console/pio/main.hpp \
 \
 $${PERIFRA_SRC}/xos/app/console/pio/onoff/main_opt.hpp \
 $${PERIFRA_SRC}/xos/app/console/pio/onoff/main.hpp \
+\
+$${PERIFRA_SRC}/xos/app/console/pigpio/client/pio/main_opt.hpp \
+$${PERIFRA_SRC}/xos/app/console/pigpio/client/pio/main.hpp \
+$${PERIFRA_SRC}/xos/app/console/pigpio/client/pio/main.h \
+\
+$${PERIFRA_SRC}/xos/app/console/pigpio/client/pio/onoff/main_opt.hpp \
+$${PERIFRA_SRC}/xos/app/console/pigpio/client/pio/onoff/main.hpp \
 
 # rpponoff SOURCES
 #
@@ -77,8 +84,8 @@ $${PERIFRA_SRC}/xos/pio/raspberrypi/raspberrypios/pigpio/pio.cpp \
 $${PERIFRA_SRC}/xos/pio/os/os.cpp \
 $${PERIFRA_SRC}/xos/pio/pios.cpp \
 \
-$${PERIFRA_SRC}/xos/app/console/pio/onoff/main_opt.cpp \
-$${PERIFRA_SRC}/xos/app/console/pio/onoff/main.cpp \
+$${PERIFRA_SRC}/xos/app/console/pigpio/client/pio/onoff/main_opt.cpp \
+$${PERIFRA_SRC}/xos/app/console/pigpio/client/pio/onoff/main.cpp \
 
 ########################################################################
 # rpponoff FRAMEWORKS
