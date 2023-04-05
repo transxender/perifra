@@ -16,14 +16,12 @@
 ///   File: main.hpp
 ///
 /// Author: $author$
-///   Date: 3/28/2023
+///   Date: 4/2/2023
 //////////////////////////////////////////////////////////////////////////
-#ifndef XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_HPP
-#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_HPP
+#ifndef XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_ONOFF_MAIN_HPP
+#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_ONOFF_MAIN_HPP
 
-#include "xos/app/console/pigpio/client/pio/main_opt.hpp"
-#include "xos/app/console/pigpio/client/pio/main.h"
-#include "xos/pio/raspberrypi/raspberrypios/pigpio/pio.hpp"
+#include "xos/app/console/pigpio/client/pio/onoff/main_opt.hpp"
 
 namespace xos {
 namespace app {
@@ -31,10 +29,11 @@ namespace console {
 namespace pigpio {
 namespace client {
 namespace pio {
+namespace onoff {
 
 /// class maint
 template 
-<class TExtends = xos::app::console::pigpio::client::pio::main_optt<>,  class TImplements = typename TExtends::implements>
+<class TExtends = xos::app::console::pigpio::client::pio::onoff::main_optt<>,  class TImplements = typename TExtends::implements>
 
 class maint: virtual public TImplements, public TExtends {
 public:
@@ -65,9 +64,6 @@ protected:
     typedef typename extends::out_writer_t out_writer_t;
     typedef typename extends::err_writer_t err_writer_t;
 
-    typedef typename extends::pio_t pio_t;
-    typedef xos::pio::raspberrypi::raspberrypios::pigpio::pio pigpio_pio_t;
-
     /// run
     int (derives::*run_)(int argc, char_t** argv, char_t** env);
     virtual int run(int argc, char_t** argv, char_t** env) {
@@ -80,58 +76,11 @@ protected:
         return err;
     }
 
-    /// on...restart_option...
-    virtual int on_set_restart_option
-    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
-        int err = 0;
-        gpioRestart();
-        return err;
-    }
-    /// on...stop_option...
-    virtual int on_set_stop_option
-    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
-        int err = 0;
-        gpioStop();
-        return err;
-    }
-
-    /// ...pigpio_host_option
-    virtual int on_set_pigpio_host_option
-    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
-        int err = 0;
-        const char_t *host = 0;
-        if ((optarg) && ((host = optarg)[0])) {
-            gpioSetHost(host);
-        } else {
-        }
-        return err;
-    }
-    /// ...pigpio_port_option
-    virtual int on_set_pigpio_port_option
-    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
-        int err = 0;
-        const char_t *port = 0;
-        if ((optarg) && ((port = optarg)[0])) {
-            string_t port_string(port);
-            short portno = (short)port_string.to_signed();
-            if (0 < (portno)) {
-                gpioSetPort(portno);
-            }
-        } else {
-        }
-        return err;
-    }
-
-    /// ...pio
-    virtual pio_t& pio() const {
-        return (pio_t&)pio_;
-    }
-
 protected:
-    pigpio_pio_t pio_;
 }; /// class maint 
 typedef maint<> main;
 
+} /// namespace onoff 
 } /// namespace pio 
 } /// namespace client 
 } /// namespace pigpio 
@@ -139,4 +88,4 @@ typedef maint<> main;
 } /// namespace app 
 } /// namespace xos 
 
-#endif /// ndef XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_HPP
+#endif /// ndef XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_ONOFF_MAIN_HPP

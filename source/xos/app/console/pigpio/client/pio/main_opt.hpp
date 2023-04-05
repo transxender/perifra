@@ -78,31 +78,31 @@
     XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_STOP_OPTARG_RESULT, \
     XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_STOP_OPTVAL_C}, \
 
-#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_HOST_OPT "host"
-#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_HOST_OPTARG_REQUIRED MAIN_OPT_ARGUMENT_OPTIONAL
-#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_HOST_OPTARG_RESULT 0
-#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_HOST_OPTARG "[{ name | ddd.ddd.ddd.ddd | ... }]"
-#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_HOST_OPTUSE "hostname or address"
-#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_HOST_OPTVAL_S "o::"
-#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_HOST_OPTVAL_C 'o'
-#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_HOST_OPTION \
-   {XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_HOST_OPT, \
-    XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_HOST_OPTARG_REQUIRED, \
-    XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_HOST_OPTARG_RESULT, \
-    XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_HOST_OPTVAL_C}, \
+#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_HOST_OPT "host"
+#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_HOST_OPTARG_REQUIRED MAIN_OPT_ARGUMENT_OPTIONAL
+#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_HOST_OPTARG_RESULT 0
+#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_HOST_OPTARG "[{ name | ddd.ddd.ddd.ddd | ... }]"
+#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_HOST_OPTUSE "hostname or address"
+#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_HOST_OPTVAL_S "o::"
+#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_HOST_OPTVAL_C 'o'
+#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_HOST_OPTION \
+   {XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_HOST_OPT, \
+    XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_HOST_OPTARG_REQUIRED, \
+    XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_HOST_OPTARG_RESULT, \
+    XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_HOST_OPTVAL_C}, \
 
-#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PORT_OPT "port"
-#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PORT_OPTARG_REQUIRED MAIN_OPT_ARGUMENT_OPTIONAL
-#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PORT_OPTARG_RESULT 0
-#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PORT_OPTARG "[{ 0..2^16-1 }]"
-#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PORT_OPTUSE "port number"
-#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PORT_OPTVAL_S "p::"
-#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PORT_OPTVAL_C 'p'
-#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PORT_OPTION \
-   {XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PORT_OPT, \
-    XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PORT_OPTARG_REQUIRED, \
-    XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PORT_OPTARG_RESULT, \
-    XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PORT_OPTVAL_C}, \
+#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_PORT_OPT "port"
+#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_PORT_OPTARG_REQUIRED MAIN_OPT_ARGUMENT_OPTIONAL
+#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_PORT_OPTARG_RESULT 0
+#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_PORT_OPTARG "[{ 0..2^16-1 }]"
+#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_PORT_OPTUSE "port number"
+#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_PORT_OPTVAL_S "p::"
+#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_PORT_OPTVAL_C 'p'
+#define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_PORT_OPTION \
+   {XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_PORT_OPT, \
+    XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_PORT_OPTARG_REQUIRED, \
+    XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_PORT_OPTARG_RESULT, \
+    XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_PORT_OPTVAL_C}, \
 
 ///////////////////////////////////////////////////////////////////////
 #define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_OPTIONS_CHARS_EXTEND \
@@ -110,16 +110,16 @@
    XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIN_NUMBER_OPTVAL_S \
    XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_RESTART_OPTVAL_S \
    XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_STOP_OPTVAL_S \
-   XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_HOST_OPTVAL_S \
-   XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PORT_OPTVAL_S \
+   XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_HOST_OPTVAL_S \
+   XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_PORT_OPTVAL_S \
 
 #define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_OPTIONS_OPTIONS_EXTEND \
    XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIN_VALUE_OPTION \
    XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIN_NUMBER_OPTION \
    XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_RESTART_OPTION \
    XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_STOP_OPTION \
-   XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_HOST_OPTION \
-   XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PORT_OPTION \
+   XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_HOST_OPTION \
+   XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_PORT_OPTION \
 
 ///////////////////////////////////////////////////////////////////////
 #define XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_OPTIONS_CHARS \
@@ -719,26 +719,18 @@ protected:
         return chars;
     }
 
-    /// on...host_option...
-    virtual int on_get_host_option
+    /// on...pigpio_host_option...
+    virtual int on_get_pigpio_host_option
     (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
         int err = 0;
         return err;
     }
-    virtual int on_host_option_get
+    virtual int on_pigpio_host_option_get
     (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
         int err = 0;
         return err;
     }
-    virtual int on_set_host_option
-    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
-        int err = 0;
-        if ((optarg) && (optarg[0])) {
-        } else {
-        }
-        return err;
-    }
-    virtual int on_host_option_set
+    virtual int on_set_pigpio_host_option
     (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
         int err = 0;
         if ((optarg) && (optarg[0])) {
@@ -746,20 +738,28 @@ protected:
         }
         return err;
     }
-    virtual int on_host_option
+    virtual int on_pigpio_host_option_set
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if ((optarg) && (optarg[0])) {
+        } else {
+        }
+        return err;
+    }
+    virtual int on_pigpio_host_option
     (int optval, const char_t* optarg, const char_t* optname,
      int optind, int argc, char_t**argv, char_t**env) {
         int err = 0;
         if ((optarg) && (optarg[0])) {
-            if (!(err = on_set_host_option(optarg, optind, argc, argv, env))) {
-                if (!(err = on_host_option_set(optarg, optind, argc, argv, env))) {
+            if (!(err = on_set_pigpio_host_option(optarg, optind, argc, argv, env))) {
+                if (!(err = on_pigpio_host_option_set(optarg, optind, argc, argv, env))) {
                 } else {
                 }
             } else {
             }
         } else {
-            if (!(err = on_get_host_option(optarg, optind, argc, argv, env))) {
-                if (!(err = on_host_option_get(optarg, optind, argc, argv, env))) {
+            if (!(err = on_get_pigpio_host_option(optarg, optind, argc, argv, env))) {
+                if (!(err = on_pigpio_host_option_get(optarg, optind, argc, argv, env))) {
                 } else {
                 }
             } else {
@@ -767,32 +767,24 @@ protected:
         }
         return err;
     }
-    virtual const char_t* host_option_usage(const char_t*& optarg, const struct option* longopt) {
-        const char_t* chars = XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_HOST_OPTUSE;
-        optarg = XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_HOST_OPTARG;
+    virtual const char_t* pigpio_host_option_usage(const char_t*& optarg, const struct option* longopt) {
+        const char_t* chars = XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_HOST_OPTUSE;
+        optarg = XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_HOST_OPTARG;
         return chars;
     }
 
-    /// on...port_option...
-    virtual int on_get_port_option
+    /// on...pigpio_port_option...
+    virtual int on_get_pigpio_port_option
     (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
         int err = 0;
         return err;
     }
-    virtual int on_port_option_get
+    virtual int on_pigpio_port_option_get
     (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
         int err = 0;
         return err;
     }
-    virtual int on_set_port_option
-    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
-        int err = 0;
-        if ((optarg) && (optarg[0])) {
-        } else {
-        }
-        return err;
-    }
-    virtual int on_port_option_set
+    virtual int on_set_pigpio_port_option
     (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
         int err = 0;
         if ((optarg) && (optarg[0])) {
@@ -800,20 +792,28 @@ protected:
         }
         return err;
     }
-    virtual int on_port_option
+    virtual int on_pigpio_port_option_set
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if ((optarg) && (optarg[0])) {
+        } else {
+        }
+        return err;
+    }
+    virtual int on_pigpio_port_option
     (int optval, const char_t* optarg, const char_t* optname,
      int optind, int argc, char_t**argv, char_t**env) {
         int err = 0;
         if ((optarg) && (optarg[0])) {
-            if (!(err = on_set_port_option(optarg, optind, argc, argv, env))) {
-                if (!(err = on_port_option_set(optarg, optind, argc, argv, env))) {
+            if (!(err = on_set_pigpio_port_option(optarg, optind, argc, argv, env))) {
+                if (!(err = on_pigpio_port_option_set(optarg, optind, argc, argv, env))) {
                 } else {
                 }
             } else {
             }
         } else {
-            if (!(err = on_get_port_option(optarg, optind, argc, argv, env))) {
-                if (!(err = on_port_option_get(optarg, optind, argc, argv, env))) {
+            if (!(err = on_get_pigpio_port_option(optarg, optind, argc, argv, env))) {
+                if (!(err = on_pigpio_port_option_get(optarg, optind, argc, argv, env))) {
                 } else {
                 }
             } else {
@@ -821,9 +821,9 @@ protected:
         }
         return err;
     }
-    virtual const char_t* port_option_usage(const char_t*& optarg, const struct option* longopt) {
-        const char_t* chars = XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PORT_OPTUSE;
-        optarg = XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PORT_OPTARG;
+    virtual const char_t* pigpio_port_option_usage(const char_t*& optarg, const struct option* longopt) {
+        const char_t* chars = XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_PORT_OPTUSE;
+        optarg = XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_PORT_OPTARG;
         return chars;
     }
 
@@ -848,11 +848,11 @@ protected:
             err = this->on_stop_option(optval, optarg, optname, optind, argc, argv, env);
             break;
 
-        case XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_HOST_OPTVAL_C:
-            err = this->on_host_option(optval, optarg, optname, optind, argc, argv, env);
+        case XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_HOST_OPTVAL_C:
+            err = this->on_pigpio_host_option(optval, optarg, optname, optind, argc, argv, env);
             break;
-        case XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PORT_OPTVAL_C:
-            err = this->on_port_option(optval, optarg, optname, optind, argc, argv, env);
+        case XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_PORT_OPTVAL_C:
+            err = this->on_pigpio_port_option(optval, optarg, optname, optind, argc, argv, env);
             break;
 
         default:
@@ -880,11 +880,11 @@ protected:
             chars = this->stop_option_usage(optarg, longopt);
             break;
 
-        case XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_HOST_OPTVAL_C:
-            chars = this->host_option_usage(optarg, longopt);
+        case XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_HOST_OPTVAL_C:
+            chars = this->pigpio_host_option_usage(optarg, longopt);
             break;
-        case XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PORT_OPTVAL_C:
-            chars = this->port_option_usage(optarg, longopt);
+        case XOS_APP_CONSOLE_PIGPIO_CLIENT_PIO_MAIN_PIGPIO_PORT_OPTVAL_C:
+            chars = this->pigpio_port_option_usage(optarg, longopt);
             break;
 
         default:
