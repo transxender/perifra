@@ -50,7 +50,19 @@ public:
     typedef typename extends::file_t file_t;
 
     /// constructor / destructor
-    maint(): run_(0) {
+    maint()
+    : run_(0), 
+      
+      begin_gpioWrite_request_("{\"pigpio\":{\"gpioWrite\":[{\"gpio\":\""), 
+      middle_gpioWrite_request_("\"},{\"level\":\""), 
+      end_gpioWrite_request_("\"}]}}"),
+      
+      begin_gpioRead_request_("{\"pigpio\":{\"gpioRead\":[{\"gpio\":\""), 
+      middle_gpioRead_request_(""), 
+      end_gpioRead_request_("\"}]}}"),
+
+      gpioRestart_request_("restart"), 
+      gpioStop_request_("stop") {
     }
     virtual ~maint() {
     }
@@ -243,7 +255,39 @@ protected:
         return err;
     }
 
+    /// ...gpio...request
+    virtual string_t& begin_gpioWrite_request() const {
+        return (string_t&)begin_gpioWrite_request_;
+    }
+    virtual string_t& middle_gpioWrite_request() const {
+        return (string_t&)middle_gpioWrite_request_;
+    }
+    virtual string_t& end_gpioWrite_request() const {
+        return (string_t&)end_gpioWrite_request_;
+    }
+    virtual string_t& begin_gpioRead_request() const {
+        return (string_t&)begin_gpioRead_request_;
+    }
+    virtual string_t& middle_gpioRead_request() const {
+        return (string_t&)middle_gpioRead_request_;
+    }
+    virtual string_t& end_gpioRead_request() const {
+        return (string_t&)end_gpioRead_request_;
+    }
+    virtual string_t& gpioRestart_request() const {
+        return (string_t&)gpioRestart_request_;
+    }
+    virtual string_t& gpioStop_request() const {
+        return (string_t&)gpioStop_request_;
+    }
+    virtual string_t& gpio_request() const {
+        return (string_t&)gpio_request_;
+    }
+    
 protected:
+    string_t begin_gpioWrite_request_, middle_gpioWrite_request_, end_gpioWrite_request_, 
+             begin_gpioRead_request_, middle_gpioRead_request_, end_gpioRead_request_, 
+             gpioRestart_request_, gpioStop_request_, gpio_request_;
 }; /// class maint 
 typedef maint<> main;
 

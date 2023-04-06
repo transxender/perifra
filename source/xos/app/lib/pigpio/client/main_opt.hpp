@@ -28,7 +28,7 @@
 #define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_VALUE_OPT "pin-value"
 #define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_VALUE_OPTARG_REQUIRED MAIN_OPT_ARGUMENT_OPTIONAL
 #define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_VALUE_OPTARG_RESULT 0
-#define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_VALUE_OPTARG "[0..255]"
+#define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_VALUE_OPTARG "[0..n]"
 #define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_VALUE_OPTUSE "set/get pio pin value"
 #define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_VALUE_OPTVAL_S "V::"
 #define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_VALUE_OPTVAL_C 'V'
@@ -41,7 +41,7 @@
 #define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_NUMBER_OPT "pin-number"
 #define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_NUMBER_OPTARG_REQUIRED MAIN_OPT_ARGUMENT_OPTIONAL
 #define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_NUMBER_OPTARG_RESULT 0
-#define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_NUMBER_OPTARG "[0..255]"
+#define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_NUMBER_OPTARG "[0..n]"
 #define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_NUMBER_OPTUSE "set/get pio pin number"
 #define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_NUMBER_OPTVAL_S "N::"
 #define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_NUMBER_OPTVAL_C 'N'
@@ -54,7 +54,7 @@
 #define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_MODE_OPT "pin-mode"
 #define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_MODE_OPTARG_REQUIRED MAIN_OPT_ARGUMENT_OPTIONAL
 #define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_MODE_OPTARG_RESULT 0
-#define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_MODE_OPTARG "[{ input(0) | output(1) | [2..255] }]"
+#define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_MODE_OPTARG "[{ input(0) | output(1) | [2..n] }]"
 #define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_MODE_OPTUSE "set/get pio pin mode"
 #define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_MODE_OPTVAL_S "M::"
 #define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_MODE_OPTVAL_C 'M'
@@ -64,15 +64,45 @@
     XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_MODE_OPTARG_RESULT, \
     XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_MODE_OPTVAL_C}, \
 
+#define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_RESTART_OPT "restart"
+#define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_RESTART_OPTARG_REQUIRED MAIN_OPT_ARGUMENT_NONE
+#define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_RESTART_OPTARG_RESULT 0
+#define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_RESTART_OPTARG ""
+#define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_RESTART_OPTUSE "restart pio server"
+#define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_RESTART_OPTVAL_S "R"
+#define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_RESTART_OPTVAL_C 'R'
+#define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_RESTART_OPTION \
+   {XOS_APP_LIB_PIGPIO_CLIENT_MAIN_RESTART_OPT, \
+    XOS_APP_LIB_PIGPIO_CLIENT_MAIN_RESTART_OPTARG_REQUIRED, \
+    XOS_APP_LIB_PIGPIO_CLIENT_MAIN_RESTART_OPTARG_RESULT, \
+    XOS_APP_LIB_PIGPIO_CLIENT_MAIN_RESTART_OPTVAL_C}, \
+
+#define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_STOP_OPT "stop"
+#define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_STOP_OPTARG_REQUIRED MAIN_OPT_ARGUMENT_NONE
+#define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_STOP_OPTARG_RESULT 0
+#define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_STOP_OPTARG ""
+#define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_STOP_OPTUSE "stop pio server"
+#define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_STOP_OPTVAL_S "S"
+#define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_STOP_OPTVAL_C 'S'
+#define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_STOP_OPTION \
+   {XOS_APP_LIB_PIGPIO_CLIENT_MAIN_STOP_OPT, \
+    XOS_APP_LIB_PIGPIO_CLIENT_MAIN_STOP_OPTARG_REQUIRED, \
+    XOS_APP_LIB_PIGPIO_CLIENT_MAIN_STOP_OPTARG_RESULT, \
+    XOS_APP_LIB_PIGPIO_CLIENT_MAIN_STOP_OPTVAL_C}, \
+
 ///////////////////////////////////////////////////////////////////////
 #define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_OPTIONS_CHARS_EXTEND \
     XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_VALUE_OPTVAL_S \
     XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_NUMBER_OPTVAL_S \
+    XOS_APP_LIB_PIGPIO_CLIENT_MAIN_RESTART_OPTVAL_S \
+    XOS_APP_LIB_PIGPIO_CLIENT_MAIN_STOP_OPTVAL_S \
 //    XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_MODE_OPTVAL_S \
 
 #define XOS_APP_LIB_PIGPIO_CLIENT_MAIN_OPTIONS_OPTIONS_EXTEND \
     XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_VALUE_OPTION \
     XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_NUMBER_OPTION \
+    XOS_APP_LIB_PIGPIO_CLIENT_MAIN_RESTART_OPTION \
+    XOS_APP_LIB_PIGPIO_CLIENT_MAIN_STOP_OPTION \
 //    XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_MODE_OPTION \
 
 ///////////////////////////////////////////////////////////////////////
@@ -315,6 +345,92 @@ protected:
         return err;
     }
 
+    /// ...restart_run
+    virtual int restart_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        return err;
+    }
+    virtual int before_restart_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        return err;
+    }
+    virtual int after_restart_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        return err;
+    }
+    virtual int all_restart_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        if (!(err = before_restart_run(argc, argv, env))) {
+            int err2 = 0;
+            err = restart_run(argc, argv, env);
+            if ((err2 = after_restart_run(argc, argv, env))) {
+                if (!(err)) err = err2;
+            }
+        }
+        return err;
+    }
+    virtual int set_restart_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        run_ = &derives::all_restart_run;
+        return err;
+    }
+    virtual int restart_run_set(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        return err;
+    }
+    virtual int unset_restart_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        run_ = 0;
+        return err;
+    }
+    virtual int restart_run_unset(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        return err;
+    }
+
+    /// ...stop_run
+    virtual int stop_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        return err;
+    }
+    virtual int before_stop_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        return err;
+    }
+    virtual int after_stop_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        return err;
+    }
+    virtual int all_stop_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        if (!(err = before_stop_run(argc, argv, env))) {
+            int err2 = 0;
+            err = stop_run(argc, argv, env);
+            if ((err2 = after_stop_run(argc, argv, env))) {
+                if (!(err)) err = err2;
+            }
+        }
+        return err;
+    }
+    virtual int set_stop_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        run_ = &derives::all_stop_run;
+        return err;
+    }
+    virtual int stop_run_set(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        return err;
+    }
+    virtual int unset_stop_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        run_ = 0;
+        return err;
+    }
+    virtual int stop_run_unset(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        return err;
+    }
+
     /// on...pin_value_option...
     virtual int on_get_pio_pin_value_option
     (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
@@ -507,6 +623,76 @@ protected:
         return chars;
     }
 
+    /// on...restart_option...
+    virtual int on_set_restart_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        return err;
+    }
+    virtual int on_restart_option_set
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if (!(err = set_restart_run(argc, argv, env))) {
+            if (!(err = restart_run_set(argc, argv, env))) {
+            } else {
+            }
+        } else {
+        }
+        return err;
+    }
+    virtual int on_restart_option
+    (int optval, const char_t* optarg, const char_t* optname,
+     int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if (!(err = on_set_restart_option(optarg, optind, argc, argv, env))) {
+            if (!(err = on_restart_option_set(optarg, optind, argc, argv, env))) {
+            } else {
+            }
+        } else {
+        }
+        return err;
+    }
+    virtual const char_t* restart_option_usage(const char_t*& optarg, const struct option* longopt) {
+        const char_t* chars = XOS_APP_LIB_PIGPIO_CLIENT_MAIN_RESTART_OPTUSE;
+        optarg = XOS_APP_LIB_PIGPIO_CLIENT_MAIN_RESTART_OPTARG;
+        return chars;
+    }
+
+    /// on...stop_option...
+    virtual int on_set_stop_option
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        return err;
+    }
+    virtual int on_stop_option_set
+    (const char_t* optarg, int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if (!(err = set_stop_run(argc, argv, env))) {
+            if (!(err = stop_run_set(argc, argv, env))) {
+            } else {
+            }
+        } else {
+        }
+        return err;
+    }
+    virtual int on_stop_option
+    (int optval, const char_t* optarg, const char_t* optname,
+     int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if (!(err = on_set_stop_option(optarg, optind, argc, argv, env))) {
+            if (!(err = on_stop_option_set(optarg, optind, argc, argv, env))) {
+            } else {
+            }
+        } else {
+        }
+        return err;
+    }
+    virtual const char_t* stop_option_usage(const char_t*& optarg, const struct option* longopt) {
+        const char_t* chars = XOS_APP_LIB_PIGPIO_CLIENT_MAIN_STOP_OPTUSE;
+        optarg = XOS_APP_LIB_PIGPIO_CLIENT_MAIN_STOP_OPTARG;
+        return chars;
+    }
+
     /// on_option
     virtual int on_option
     (int optval, const char_t* optarg, const char_t* optname,
@@ -522,6 +708,13 @@ protected:
             break;
         case XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_MODE_OPTVAL_C:
             err = this->on_pio_pin_mode_option(optval, optarg, optname, optind, argc, argv, env);
+            break;
+
+        case XOS_APP_LIB_PIGPIO_CLIENT_MAIN_RESTART_OPTVAL_C:
+            err = this->on_restart_option(optval, optarg, optname, optind, argc, argv, env);
+            break;
+        case XOS_APP_LIB_PIGPIO_CLIENT_MAIN_STOP_OPTVAL_C:
+            err = this->on_stop_option(optval, optarg, optname, optind, argc, argv, env);
             break;
 
         default:
@@ -543,6 +736,13 @@ protected:
             break;
         case XOS_APP_LIB_PIGPIO_CLIENT_MAIN_PIO_PIN_MODE_OPTVAL_C:
             chars = this->pin_mode_option_usage(optarg, longopt);
+            break;
+
+        case XOS_APP_LIB_PIGPIO_CLIENT_MAIN_RESTART_OPTVAL_C:
+            chars = this->restart_option_usage(optarg, longopt);
+            break;
+        case XOS_APP_LIB_PIGPIO_CLIENT_MAIN_STOP_OPTVAL_C:
+            chars = this->stop_option_usage(optarg, longopt);
             break;
 
         default:

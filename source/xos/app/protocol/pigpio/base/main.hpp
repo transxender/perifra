@@ -57,41 +57,9 @@ public:
 
     /// constructor / destructor
     maint()
-    : run_(0), 
-      
-      begin_gpioWrite_request_("{\"pigpio\":{\"gpioWrite\":[{\"gpio\":\""), 
-      middle_gpioWrite_request_("\"},{\"level\":\""), 
-      end_gpioWrite_request_("\"}]}}"),
-      gpioWrite_request_gpio_("17"),
-      gpioWrite_request_level_off_("0"),
-      gpioWrite_request_level_on_("1"),
-      
-      begin_gpioRead_request_("{\"pigpio\":{\"gpioRead\":[{\"gpio\":\""), 
-      middle_gpioRead_request_(""), 
-      end_gpioRead_request_("\"}]}}"),
-      gpioRead_request_gpio_("22"),
-
-      gpioRestart_request_("restart"), 
-      gpioStop_request_("stop"), 
-
+    : run_(0),
       accept_port_(XOS_APP_PROTOCOL_PERIFRA_CONTROL_PIGPIO_NETWORK_SOCKETS_ACCEPT_PORT), 
       connect_port_(XOS_APP_PROTOCOL_PERIFRA_CONTROL_PIGPIO_NETWORK_SOCKETS_CONNECT_PORT) {
-        off_gpioWrite_request_.assign(begin_gpioWrite_request_);
-        off_gpioWrite_request_.append(gpioWrite_request_gpio_);
-        off_gpioWrite_request_.append(middle_gpioWrite_request_);
-        off_gpioWrite_request_.append(gpioWrite_request_level_off_);
-        off_gpioWrite_request_.append(end_gpioWrite_request_);
-
-        on_gpioWrite_request_.assign(begin_gpioWrite_request_);
-        on_gpioWrite_request_.append(gpioWrite_request_gpio_);
-        on_gpioWrite_request_.append(middle_gpioWrite_request_);
-        on_gpioWrite_request_.append(gpioWrite_request_level_on_);
-        on_gpioWrite_request_.append(end_gpioWrite_request_);
-        
-        gpioRead_request_.assign(begin_gpioRead_request_);
-        gpioRead_request_.append(gpioRead_request_gpio_);
-        gpioRead_request_.append(middle_gpioRead_request_);
-        gpioRead_request_.append(end_gpioRead_request_);
     }
     virtual ~maint() {
     }
@@ -125,65 +93,7 @@ protected:
         return (short&)connect_port_;
     }
 
-    /// ...gpio...request
-    virtual string_t& begin_gpioWrite_request() const {
-        return (string_t&)begin_gpioWrite_request_;
-    }
-    virtual string_t& middle_gpioWrite_request() const {
-        return (string_t&)middle_gpioWrite_request_;
-    }
-    virtual string_t& end_gpioWrite_request() const {
-        return (string_t&)end_gpioWrite_request_;
-    }
-    virtual string_t& gpioWrite_request_gpio() const {
-        return (string_t&)gpioWrite_request_gpio_;
-    }
-    virtual string_t& gpioWrite_request_level_off() const {
-        return (string_t&)gpioWrite_request_level_off_;
-    }
-    virtual string_t& gpioWrite_request_level_on() const {
-        return (string_t&)gpioWrite_request_level_on_;
-    }
-    virtual string_t& off_gpioWrite_request() const {
-        return (string_t&)off_gpioWrite_request_;
-    }
-    virtual string_t& on_gpioWrite_request() const {
-        return (string_t&)on_gpioWrite_request_;
-    }
-
-    virtual string_t& begin_gpioRead_request() const {
-        return (string_t&)begin_gpioRead_request_;
-    }
-    virtual string_t& middle_gpioRead_request() const {
-        return (string_t&)middle_gpioRead_request_;
-    }
-    virtual string_t& end_gpioRead_request() const {
-        return (string_t&)end_gpioRead_request_;
-    }
-    virtual string_t& gpioRead_request_gpio() const {
-        return (string_t&)gpioRead_request_gpio_;
-    }
-    virtual string_t& gpioRead_request() const {
-        return (string_t&)gpioRead_request_;
-    }
-
-    virtual string_t& gpioRestart_request() const {
-        return (string_t&)gpioRestart_request_;
-    }
-    virtual string_t& gpioStop_request() const {
-        return (string_t&)gpioStop_request_;
-    }
-    virtual string_t& gpio_request() const {
-        return (string_t&)gpio_request_;
-    }
-    
 protected:
-    string_t begin_gpioWrite_request_, middle_gpioWrite_request_, end_gpioWrite_request_, 
-             gpioWrite_request_gpio_, gpioWrite_request_level_off_, gpioWrite_request_level_on_, 
-             off_gpioWrite_request_, on_gpioWrite_request_,
-             begin_gpioRead_request_, middle_gpioRead_request_, end_gpioRead_request_, 
-             gpioRead_request_gpio_, gpioRead_request_,
-             gpioRestart_request_, gpioStop_request_, gpio_request_;
     short accept_port_, connect_port_;    
 }; /// class maint 
 typedef maint<> main;

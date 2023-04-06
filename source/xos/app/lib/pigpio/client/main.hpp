@@ -151,6 +151,26 @@ protected:
         return err;
     }
 
+    /// ...restart_run
+    virtual int restart_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        main_t& main = this->main();
+        if (!(err = main.all_gpioRestart_run(argc, argv, env))) {
+        } else {
+        }
+        return err;
+    }
+
+    /// ...stop_run
+    virtual int stop_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        main_t& main = this->main();
+        if (!(err = main.all_gpioStop_run(argc, argv, env))) {
+        } else {
+        }
+        return err;
+    }
+
     /// ...pigpio...
     virtual uint8_t& set_pigpio_gpio(const uint8_t& to) {
         uint8_t& pigpio_gpio = this->pigpio_gpio();
